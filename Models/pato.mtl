@@ -1,0 +1,21 @@
+# Exported from 3D Builder
+
+newmtl Mat_0
+Kd 1.000000 1.000000 1.000000
+map_Kd pato.jpg
+
+newmtl Mat_1
+Kd 1.000000 1.000000 1.000000
+map_Kd red.jpg
+
+newmtl Mat_2
+Kd 1.000000 1.000000 1.000000
+map_Kd plant.jpg
+
+newmtl Mat_3
+Kd 1.000000 1.000000 1.000000
+map_Kd pico.png
+
+newmtl Mat_4
+Kd 1.000000 1.000000 1.000000
+map_Kd ojos.png
