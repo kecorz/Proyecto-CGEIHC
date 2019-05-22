@@ -58,6 +58,7 @@ GLfloat flag;
 int save = 1;
 float reproduciranimacion, habilitaranimacion, guardoFrame, reinicioFrame, ciclo, ciclo2, contador = 0;
 int auxskybox;
+float posx = 0.0, posy = 0.0, posz = 0.0;
 float hora;
 float intensidad;
 
@@ -614,7 +615,10 @@ int main()
 		//contador de luces puntuales y spotlight
 		unsigned int pointLightCount = 0;
 		unsigned int spotLightCount = 0;
-
+		
+		//Recibir eventos del usuario
+		glfwPollEvents();
+	
 		//Declaración de primer luz puntual
 		//Faro uno
 		pointLights[0] = PointLight(1.0f, 1.0f, 1.0f,
@@ -638,18 +642,15 @@ int main()
 		pointLightCount++;
 
 		//reflector
-		spotLights[1] = SpotLight(0.0f, 0.0f, 1.0f, //color
+		spotLights[1] = SpotLight(1.0f, 1.0f, 1.0f, //color
 								  0.0f, 2.0f, //
-								  0.0f, mainWindow.getreflector(), 0.0f, //posicion
+								  0.0f + posx, 0.0 + posy, 0.0f + posz, //posicion
 								  0.0f, -15.0f, 0.0f, //direccion
 								  1.0f, 0.0f, 0.0f, 
 								  12.0f); //angulo de apertura
 		spotLightCount++;
 
 		//punta kilahuea 0.0f, 10.7f, 0.0f
-
-		//Recibir eventos del usuario
-		glfwPollEvents();
 
 		while (auxskybox != 500000000)
 		{
@@ -811,7 +812,7 @@ int main()
 		maderaTexture.UseTexture();
 		Material_brillante.UseMaterial(uniformSpecularIntensity, uniformShininess);
 		meshList[3]->RenderMesh();
-		spotLights[2].SetPos(glm::vec3(0.0f, -1.5f, 0.0f));
+		//spotLights[2].SetPos(glm::vec3(0.0f, -1.5f, 0.0f));
 
 
 		//ESTRUCTURA DEL KILAHUEA
